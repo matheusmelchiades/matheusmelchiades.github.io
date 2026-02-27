@@ -1,1 +1,561 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title><link href="/static/css/main.d1b05096.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>!function(e){function t(t){for(var n,i,l=t[0],a=t[1],f=t[2],p=0,s=[];p<l.length;p++)i=l[p],Object.prototype.hasOwnProperty.call(o,i)&&o[i]&&s.push(o[i][0]),o[i]=0;for(n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n]);for(c&&c(t);s.length;)s.shift()();return u.push.apply(u,f||[]),r()}function r(){for(var e,t=0;t<u.length;t++){for(var r=u[t],n=!0,l=1;l<r.length;l++){var a=r[l];0!==o[a]&&(n=!1)}n&&(u.splice(t--,1),e=i(i.s=r[0]))}return e}var n={},o={1:0},u=[];function i(t){if(n[t])return n[t].exports;var r=n[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,i),r.l=!0,r.exports}i.m=e,i.c=n,i.d=function(e,t,r){i.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,t){if(1&t&&(e=i(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(i.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)i.d(r,n,function(t){return e[t]}.bind(null,n));return r},i.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(t,"a",t),t},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},i.p="/";var l=this["webpackJsonpmatheusmelchiades.github.io"]=this["webpackJsonpmatheusmelchiades.github.io"]||[],a=l.push.bind(l);l.push=t,l=l.slice();for(var f=0;f<l.length;f++)t(l[f]);var c=a;r()}([])</script><script src="/static/js/2.d778df6d.chunk.js"></script><script src="/static/js/main.abfb3152.chunk.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matheus Maciel — Fullstack Developer</title>
+  <meta name="description" content="Portfolio de Matheus Maciel — Fullstack Developer especializado em TypeScript, React, Node.js e Python." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0b;
+      --bg-card: #111113;
+      --bg-card-hover: #18181b;
+      --border: #27272a;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.15);
+      --green: #22c55e;
+      --orange: #f97316;
+      --cyan: #06b6d4;
+      --pink: #ec4899;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 10, 11, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .container {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+
+    nav .logo {
+      font-weight: 700; font-size: 1.1rem;
+      color: var(--text); text-decoration: none;
+    }
+
+    nav .logo span { color: var(--accent); }
+
+    nav .links { display: flex; gap: 32px; list-style: none; }
+    nav .links a {
+      color: var(--text-muted); text-decoration: none; font-size: 0.9rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    nav .links a:hover { color: var(--text); }
+
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(ellipse at 50% 50%, var(--accent-glow) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
+
+    .hero .greeting {
+      font-family: var(--mono); font-size: 0.95rem;
+      color: var(--accent); margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+
+    .hero .greeting .line {
+      width: 32px; height: 1px; background: var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700; line-height: 1.1; margin-bottom: 20px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subtitle {
+      font-size: 1.15rem; color: var(--text-muted); margin-bottom: 36px;
+      max-width: 520px; margin-left: auto; margin-right: auto;
+    }
+
+    .hero .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 8px; font-size: 0.95rem;
+      font-weight: 600; text-decoration: none; transition: all 0.2s;
+      cursor: pointer; border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent); color: white;
+      box-shadow: 0 0 24px var(--accent-glow);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px var(--accent-glow); }
+
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--text-muted); background: var(--bg-card); }
+
+    section { padding: 100px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-family: var(--mono); font-size: 0.85rem; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700; margin-bottom: 48px;
+    }
+
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted); font-size: 1.05rem; margin-bottom: 16px;
+    }
+
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+
+    .stat-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; text-align: center;
+      transition: border-color 0.3s;
+    }
+
+    .stat-card:hover { border-color: var(--accent); }
+
+    .stat-number {
+      font-size: 2.2rem; font-weight: 700; margin-bottom: 4px;
+    }
+
+    .stat-number.purple { color: var(--accent); }
+    .stat-number.green { color: var(--green); }
+    .stat-number.orange { color: var(--orange); }
+    .stat-number.cyan { color: var(--cyan); }
+
+    .stat-label { font-size: 0.85rem; color: var(--text-muted); }
+
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-category {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .skill-category:hover { border-color: var(--accent); transform: translateY(-4px); }
+
+    .skill-category h3 {
+      font-size: 1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+    }
+
+    .skill-icon { font-size: 1.3rem; }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .skill-tag {
+      background: rgba(99, 102, 241, 0.1); color: var(--accent);
+      padding: 6px 14px; border-radius: 6px; font-size: 0.8rem;
+      font-family: var(--mono); font-weight: 500;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+    }
+
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px;
+      display: flex; flex-direction: column;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative; overflow: hidden;
+    }
+
+    .project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+
+    .project-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--accent), var(--cyan));
+      opacity: 0; transition: opacity 0.3s;
+    }
+
+    .project-card:hover::before { opacity: 1; }
+
+    .project-emoji { font-size: 2rem; margin-bottom: 16px; }
+
+    .project-card h3 {
+      font-size: 1.15rem; margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--text-muted); font-size: 0.9rem; flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .project-tech {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;
+    }
+
+    .tech-tag {
+      background: rgba(255, 255, 255, 0.05); color: var(--text-muted);
+      padding: 4px 10px; border-radius: 4px; font-size: 0.75rem;
+      font-family: var(--mono);
+    }
+
+    .project-links { display: flex; gap: 12px; }
+
+    .project-link {
+      color: var(--text-muted); text-decoration: none; font-size: 0.85rem;
+      font-weight: 500; display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .project-link:hover { color: var(--accent); }
+
+    .contact-section { text-align: center; }
+
+    .contact-section .subtitle {
+      color: var(--text-muted); font-size: 1.1rem; max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    .contact-links {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    }
+
+    .contact-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px 32px;
+      text-decoration: none; color: var(--text);
+      display: flex; align-items: center; gap: 12px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    .contact-card .icon { font-size: 1.3rem; }
+    .contact-card .label { font-size: 0.85rem; color: var(--text-muted); }
+    .contact-card .value { font-weight: 600; font-size: 0.95rem; }
+
+    footer {
+      text-align: center; padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted); font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      nav .links { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .hero .cta-group { flex-direction: column; align-items: center; }
+    }
+
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">matheus<span>.dev</span></a>
+      <ul class="links">
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projetos</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="greeting">
+        <span class="line"></span>
+        <span>Ola, eu sou</span>
+        <span class="line"></span>
+      </div>
+      <h1>Matheus <span class="highlight">Maciel</span></h1>
+      <p class="subtitle">Fullstack Developer que transforma ideias em codigo. Apaixonado por TypeScript, React, Node.js e por resolver problemas reais.</p>
+      <div class="cta-group">
+        <a href="#projects" class="btn btn-primary">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          Ver Projetos
+        </a>
+        <a href="#contact" class="btn btn-outline">Fale Comigo</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <p class="section-label">// sobre mim</p>
+      <h2 class="section-title">Quem sou eu</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Sou desenvolvedor fullstack com experiencia em construir aplicacoes completas — do backend ao frontend, do banco de dados ao deploy.</p>
+          <p>Trabalho principalmente com o ecossistema JavaScript/TypeScript (React, Node.js, React Native), mas tambem me aventuro em Python para projetos de Machine Learning e Go para servicos de alta performance.</p>
+          <p>Gosto de explorar tecnologias emergentes como blockchain e streaming em tempo real, e acredito que o melhor codigo e aquele que resolve problemas reais de forma simples e elegante.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number purple">5+</div>
+            <div class="stat-label">Anos de experiencia</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number green">30+</div>
+            <div class="stat-label">Projetos construidos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number orange">8+</div>
+            <div class="stat-label">Tecnologias dominadas</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number cyan">&#x2744;</div>
+            <div class="stat-label">Arctic Code Vault</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">// habilidades</p>
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="skills-grid">
+        <div class="skill-category fade-in">
+          <h3><span class="skill-icon">Frontend</span></h3>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">React Native</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">Next.js</span>
+          </div>
+        </div>
+        <div class="skill-category fade-in">
+          <h3><span class="skill-icon">Backend</span></h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Go</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-category fade-in">
+          <h3><span class="skill-icon">Database and Infra</span></h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">Git</span>
+          </div>
+        </div>
+        <div class="skill-category fade-in">
+          <h3><span class="skill-icon">Outros</span></h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">Blockchain</span>
+            <span class="skill-tag">Electron</span>
+            <span class="skill-tag">Deno</span>
+            <span class="skill-tag">Socket.io</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">// projetos</p>
+      <h2 class="section-title">Trabalhos em Destaque</h2>
+      <div class="projects-grid">
+
+        <div class="project-card fade-in">
+          <h3>Audit Service</h3>
+          <p>Servico descentralizado de audit log utilizando blockchain. Registros imutaveis, transparentes e a prova de adulteracao para operacoes criticas.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Blockchain</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">TypeScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/matheusmelchiades/audit-service" target="_blank" class="project-link">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <h3>Crypto Exchange</h3>
+          <p>Widget fullstack de cambio de criptomoedas com conversao em tempo real. Frontend em React + TypeScript, backend em Node.js.</p>
+          <div class="project-tech">
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/matheusmelchiades/crypto-exchange" target="_blank" class="project-link">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <h3>Drowsiness Detection</h3>
+          <p>Sistema de deteccao de sonolencia em tempo real usando visao computacional. Analisa landmarks faciais e calcula Eye Aspect Ratio para alertar motoristas.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">dlib</span>
+            <span class="tech-tag">NumPy</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/matheusmelchiades/drowsiness-detection" target="_blank" class="project-link">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <h3>Card Memory Game</h3>
+          <p>Jogo da memoria tematico Rick and Morty. Fullstack com React no frontend e servidor dedicado para a logica do jogo.</p>
+          <div class="project-tech">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Node.js</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/matheusmelchiades/card-memory-game" target="_blank" class="project-link">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <h3>Chess Game</h3>
+          <p>Jogo de xadrez jogavel no navegador, construido com JavaScript puro — sem frameworks. Demonstra logica de jogo e gerenciamento de estado.</p>
+          <div class="project-tech">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/matheusmelchiades/chess-game" target="_blank" class="project-link">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <h3>Worklog Desktop</h3>
+          <p>Aplicacao desktop para automatizar worklogs no Jira. Construido com Electron para oferecer experiencia nativa.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Electron</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Jira API</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/matheusmelchiades/worklog-desktop" target="_blank" class="project-link">GitHub</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <p class="section-label">// contato</p>
+      <h2 class="section-title">Vamos Conversar?</h2>
+      <p class="subtitle">Estou aberto a novas oportunidades, projetos interessantes e colaboracoes. Manda uma mensagem!</p>
+      <div class="contact-links">
+        <a href="mailto:matheusmmelchiades@gmail.com" class="contact-card">
+          <div class="icon">Email</div>
+          <div>
+            <div class="label">Email</div>
+            <div class="value">matheusmmelchiades@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://github.com/matheusmelchiades" target="_blank" class="contact-card">
+          <div class="icon">GitHub</div>
+          <div>
+            <div class="label">GitHub</div>
+            <div class="value">@matheusmelchiades</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/matheusmelchiades" target="_blank" class="contact-card">
+          <div class="icon">LinkedIn</div>
+          <div>
+            <div class="label">LinkedIn</div>
+            <div class="value">Matheus Maciel</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Feito por Matheus Maciel — 2026</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
